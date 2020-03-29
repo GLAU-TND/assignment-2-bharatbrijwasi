@@ -1,3 +1,5 @@
+import java.util.LinkedList; 
+import java.util.Queue; 
 import java.util.Scanner;
 class MyBST
 {
@@ -49,12 +51,20 @@ class MyBST
 
 	}
 
+	Queue<Integer> q = new LinkedList<>(); 
+
+	/*implement Queue interface to hold element of each traversal it also help to varify the result of each traversal*/
+	//if queue head equal to root means pre-order-traversal verify
+	//if queue peak equal to root means post-order-traversal varify
+	//
+
 	public void inOrderTraversal(Node root)
 	{
 		if(root != null)
 		{
 			inOrderTraversal(root.left);
 			System.out.print(root.data +" ");
+			q.add(root.data);	//we pushed every element into queue(using Queue predefine interface) to varify the result
 			inOrderTraversal(root.right);
 		}
 	}
@@ -66,6 +76,7 @@ class MyBST
 			postOrderTraversal(root.left);
 			postOrderTraversal(root.right);
 			System.out.print(root.data +" ");
+			q.add(root.data); //we pushed every element into queue(using Queue predefine interface) to varify the result
 		}
 	}
 
@@ -74,9 +85,22 @@ class MyBST
 		if(root != null)
 		{
 			System.out.print(root.data +" ");
+			q.add(root.data);	//we pushed every element into queue(using Queue predefine interface) to varify the result
 			preOrderTraversal(root.left);
 			preOrderTraversal(root.right);
 			
 		}
+	}
+
+	public void verifyPostTraversal()
+	{
+		System.out.println(q);
+		System.out.println(root.data);
+		if(q.peek() == root.data)
+		{
+			System.out.println("post-order-traversal verified....");
+		}
+
+
 	}
 }
