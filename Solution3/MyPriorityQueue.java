@@ -14,11 +14,11 @@ class MyPriorityQueue
 	{
 		Scanner sc = new Scanner(System.in);
 		Student newStudent = new Student();
-		System.out.println("Enter Student Roll Number(Priority)");
+		System.out.print("Enter Student Roll Number(Priority)");
 		int newStudentPriority = sc.nextInt();
 		//user first Enter rollnumber after he enter All other details
 		Node newnode = new Node(newStudent, newStudentPriority);	
-		//newStudent.setStudentDetails();
+		newStudent.setStudentDetails();
  
 		//if list is Empty
 		if(rear == null && head == null)
@@ -63,8 +63,12 @@ class MyPriorityQueue
 			Node temp = head;
 			while(temp != null)
 			{
+				System.out.println("-----+--------+----------");
 				System.out.println("Roll Number(Priority): " +temp.priotry);
-
+				System.out.println("First_Name: " +temp.st.getSname());
+				System.out.println("LAst_name: ");
+				System.out.println("Salary: ");
+				System.out.println("-----+--------+----------");
 				temp = temp.next;
 			}
 		}
