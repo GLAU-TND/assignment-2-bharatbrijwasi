@@ -1,12 +1,13 @@
 class Node
 {
-	Student stu;
+	Student st; 
 	Node next;
-
-	public Node(Student stu)
+	int priotry;	//here priority work as roll number of student
+	public Node(Student st, int priotry)
 	{
-		this.stu = stu;
+		this.st = st;
 		next = null;
+		this.priotry = priotry; 
 	}
 
 }

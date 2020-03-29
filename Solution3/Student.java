@@ -1,7 +1,7 @@
 import java.util.Scanner;
 class Student
 {
-	private String sName;
+ 	private String sName;
 	private String lName;
 	private double salary;
 
