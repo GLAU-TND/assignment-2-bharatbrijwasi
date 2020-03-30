@@ -1,3 +1,4 @@
+import java.util.ArrayList; 
 import java.util.Scanner;
 class MyMain
 {
@@ -12,32 +13,37 @@ class MyMain
 			System.out.print(i+ "-Node Value: ");
 			treeObj.insertNode(sc.nextInt());	
 		}
-		
-		System.out.println("press 1 fot in-Oreder-Traversal and verify result");
-		System.out.println("press 2 for post-order-traversal and verify result");
-		System.out.println("press 3 for pre-order traversal and verify result");
-		int choice = sc.nextInt();
-		switch(choice)
+ 			
+		System.out.println("press 1 for Pre-Order-Traversal");
+		System.out.println("press 2 for in-Order-Traversal");
+		System.out.println("press 3 for Post-Order_traversal");
+		int inputChoice = sc.nextInt();
+		switch(inputChoice)
 		{
 			case 1:
 			{
-				System.out.println("in-Oreder-Traversal");
-				treeObj.inOrderTraversal(treeObj.root);
+				System.out.println("\npre-Order-Traversal");
+				treeObj.preOrderTraversal(treeObj.root);
 				break;
 			}
 			case 2:
 			{
-				System.out.println("\npost-Oreder-Traversal");
-				treeObj.postOrderTraversal(treeObj.root);
-				treeObj.verifyPostTraversal();
+				System.out.println("in-Order-Traversal");
+				treeObj.inOrderTraversal(treeObj.root);
 				break;
 			}
 			case 3:
 			{
-				System.out.println("\npre-Oreder-Traversal");
-				treeObj.preOrderTraversal(treeObj.root);
+				System.out.println("\npost-Order-Traversal");
+				treeObj.postOrderTraversal(treeObj.root);
 				break;
 			}
 		}
+		
+		//verify result 
+		System.out.println("\nPre-Order_traversal Verify: " +treeObj.verifyPreOrderTraversal());
+		System.out.println("Post-Order_traversal Verify: " +treeObj.verifyPostOrderTraversal());
+		System.out.println("In-Order_traversal Verify: " +treeObj.verifyInOrderTraversal());
+
 	}
 }

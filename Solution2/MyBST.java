@@ -1,5 +1,4 @@
-import java.util.LinkedList; 
-import java.util.Queue; 
+import java.util.ArrayList; 
 import java.util.Scanner;
 class MyBST
 {
@@ -51,12 +50,7 @@ class MyBST
 
 	}
 
-	Queue<Integer> q = new LinkedList<>(); 
-
-	/*implement Queue interface to hold element of each traversal it also help to varify the result of each traversal*/
-	//if queue head equal to root means pre-order-traversal verify
-	//if queue peak equal to root means post-order-traversal varify
-	//
+	ArrayList<Integer> list = new ArrayList<Integer>(); 
 
 	public void inOrderTraversal(Node root)
 	{
@@ -64,8 +58,9 @@ class MyBST
 		{
 			inOrderTraversal(root.left);
 			System.out.print(root.data +" ");
-			q.add(root.data);	//we pushed every element into queue(using Queue predefine interface) to varify the result
-			inOrderTraversal(root.right);
+ 			inOrderTraversal(root.right);
+ 			list.add(root.data); 
+
 		}
 	}
 
@@ -76,7 +71,8 @@ class MyBST
 			postOrderTraversal(root.left);
 			postOrderTraversal(root.right);
 			System.out.print(root.data +" ");
-			q.add(root.data); //we pushed every element into queue(using Queue predefine interface) to varify the result
+			list.add(root.data);
+			 
 		}
 	}
 
@@ -85,22 +81,29 @@ class MyBST
 		if(root != null)
 		{
 			System.out.print(root.data +" ");
-			q.add(root.data);	//we pushed every element into queue(using Queue predefine interface) to varify the result
-			preOrderTraversal(root.left);
+			list.add(root.data);
+ 			preOrderTraversal(root.left);
 			preOrderTraversal(root.right);
 			
 		}
 	}
 
-	public void verifyPostTraversal()
-	{
-		System.out.println(q);
-		System.out.println(root.data);
-		if(q.peek() == root.data)
-		{
-			System.out.println("post-order-traversal verified....");
-		}
+	public boolean verifyPreOrderTraversal()
+	{ 
+		//if first Value of Arraylist is Equal to first value(root value) it return true, means preOrder varify
+		return(root.data == list.get(0));	 
+	}
 
 
+	public boolean verifyInOrderTraversal()
+	{ 
+		//if (half or half+1) Value of Arraylist is Equal to first value(root value) it return true, means preOrder varify
+		return(root.data == (list.size()/2) || root.data == (list.size()/2)+1);	 
+	}
+
+	public boolean verifyPostOrderTraversal()
+	{ 
+		//if last Value of Arraylist is Equal to first value(root value) it return true, means preOrder varify
+		return(root.data == list.size() - 1);	 
 	}
 }
