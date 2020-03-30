@@ -51,7 +51,13 @@ class MyBST
 	}
 
 	ArrayList<Integer> list = new ArrayList<Integer>(); 
-
+	/* it help to verify the traversal reult. i push each element in ArrayList while traversing
+	   1.if first Element of Arraylist is Equal to root then, preOrder Traversal varify
+	   1.if (size/2 or size/2+1) Element of Arraylist is Equal to root then, inOrder Traversal varify
+	   1.if last Element of Arraylist is Equal to root then, postOrder Traversal varify
+	
+	
+	*/
 	public void inOrderTraversal(Node root)
 	{
 		if(root != null)
@@ -59,7 +65,7 @@ class MyBST
 			inOrderTraversal(root.left);
 			System.out.print(root.data +" ");
  			inOrderTraversal(root.right);
- 			list.add(root.data); 
+ 			list.add(root.data); //push Element in Arraylist
 
 		}
 	}
@@ -71,7 +77,7 @@ class MyBST
 			postOrderTraversal(root.left);
 			postOrderTraversal(root.right);
 			System.out.print(root.data +" ");
-			list.add(root.data);
+			list.add(root.data);	//push Element in Arraylist
 			 
 		}
 	}
@@ -81,7 +87,7 @@ class MyBST
 		if(root != null)
 		{
 			System.out.print(root.data +" ");
-			list.add(root.data);
+			list.add(root.data);	//push Element in Arraylist
  			preOrderTraversal(root.left);
 			preOrderTraversal(root.right);
 			
