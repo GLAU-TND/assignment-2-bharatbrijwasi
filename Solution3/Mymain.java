@@ -11,6 +11,7 @@ public class Mymain
 		{
 			prty.enQueue();
 		}
+		System.out.println();
 		prty.printQueue();
 	}
 }
