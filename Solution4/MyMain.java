@@ -9,6 +9,7 @@ class MyMain
 		int numberOfNodeInTree = sc.nextInt();
 		for(int i = 1; i <= numberOfNodeInTree; i++)
 		{
+			System.out.print(i+ "-Node: ");
 			obj.insertNode(sc.nextInt());
 		}
 

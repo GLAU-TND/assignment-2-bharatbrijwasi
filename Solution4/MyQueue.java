@@ -20,12 +20,7 @@ class MyQueue
 		}
 		else
 		{
-			QNode temp = front;
-			while(temp.next != null)
-			{
-				temp = temp.next;
-			}
-			temp.next = newnode;
+			rear.next = newnode;
 			rear = newnode;
 		}
 	}
